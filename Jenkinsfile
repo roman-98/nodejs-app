@@ -34,6 +34,7 @@ pipeline {
                     sh 'sudo docker tag nodejs-app:latest rstrypa/nodejs-app:latest'
                     sh 'sudo docker push rstrypa/nodejs-app:latest'
                     sh 'sudo docker logout'
+                }
             }
         }
     }
