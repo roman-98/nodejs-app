@@ -33,7 +33,7 @@ pipeline {
                     sh 'sudo docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD'
                     sh 'sudo docker tag nodejs-app:1.0 romanstripa/nodejs-app'
                     sh 'sudo docker push romanstripa/nodejs-app:1.0'
-                    sh 'sudo sudo docker logout'
+                    sh 'sudo docker logout'
                 }
             }
         }
