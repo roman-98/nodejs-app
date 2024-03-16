@@ -29,12 +29,10 @@ pipeline {
         }
         stage('Deploy Docker Image') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'docker_cred', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
-                    sh 'sudo docker login -u ${DOCKERHUB_USERNAME} -p ${DOCKERHUB_PASSWORD}'
-                    sh 'sudo docker tag nodejs-app:latest rstrypa/nodejs-app:latest'
-                    sh 'sudo docker push rstrypa/nodejs-app:latest'
-                    sh 'sudo docker logout'
-                }
+                sh 'sudo docker login -u rstrypa -p ghjntrnjh'
+                sh 'sudo docker tag nodejs-app:latest rstrypa/nodejs-app:latest'
+                sh 'sudo docker push rstrypa/nodejs-app:latest'
+                sh 'sudo docker logout'
             }
         }
     }
