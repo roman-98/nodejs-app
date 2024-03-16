@@ -33,7 +33,7 @@ pipeline {
                  withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
                     sh 'sudo docker login -u romanstripa -p ${dockerhubpwd}'
                  }  
-                    sh 'sudo docker push devopshint/nodejs-app:latest'
+                    sh 'sudo docker push romanstripa/nodejs-app:latest'
                 }
             }
         }
