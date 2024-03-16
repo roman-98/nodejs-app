@@ -27,13 +27,13 @@ pipeline {
                 sh 'sudo docker build -t nodejs-app:1.0 .'
             }
         }
-        stage('docker push') {
+        stage('Deploy Docker Image') {
             steps {
-                script {
-                 withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
-                    sh 'sudo docker login -u rstrypa -p ${dockerhubpwd}'
-                 }  
-                    sh 'sudo docker push rstrypa/nodejs-app'
+                withCredentials([usernamePassword(credentialsId: 'docker_cred', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
+                    sh 'sudo docker login -u ${DOCKERHUB_USERNAME} -p ${DOCKERHUB_PASSWORD}'
+                    sh 'sudo docker tag nodejs-app:latest rstrypa/nodejs-app:latest'
+                    sh 'sudo docker push rstrypa/nodejs-app:latest'
+                    sh 'sudo docker logout'
                 }
             }
         }
