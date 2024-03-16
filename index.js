@@ -18,7 +18,7 @@ const getIPAddress = () => {
 
 app.get('/', (req, res) => {
   const ipAddress = getIPAddress();
-  res.send(`Сервер: ${ipAddress}`);
+  res.send(`Server: ${ipAddress}`);
 });
 
 app.listen(port, () => {
