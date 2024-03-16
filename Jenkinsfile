@@ -24,17 +24,16 @@ pipeline {
 
         stage("build image"){
             steps{
-                sh 'sudo docker build -t nodejs-app:latest2 .'
+                sh 'sudo docker build -t nodejs-app:latest .'
             }
         }
         stage('docker push') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'docker_cred', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
                     sh 'sudo docker login -u ${DOCKERHUB_USERNAME} -p ${DOCKERHUB_PASSWORD}'
-                    sh 'sudo docker tag nodejs-app:latest2 rstrypa/nodejs-app:latest2'
-                    sh 'sudo docker push rstrypa/nodejs-app:latest2'
+                    sh 'sudo docker tag nodejs-app:latest rstrypa/nodejs-app:latest'
+                    sh 'sudo docker push rstrypa/nodejs-app:latest'
                     sh 'sudo docker logout'
-                }
             }
         }
     }
