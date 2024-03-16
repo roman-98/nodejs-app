@@ -31,9 +31,9 @@ pipeline {
             steps {
                 script {
                  withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
-                    sh 'sudo docker login -u romanstripa -p ${dockerhubpwd}'
+                    sh 'sudo docker login -u rstrypa -p ${dockerhubpwd}'
                  }  
-                    sh 'sudo docker push romanstripa/nodejs-app'
+                    sh 'sudo docker push rstrypa/nodejs-app'
                 }
             }
         }
