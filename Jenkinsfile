@@ -24,7 +24,7 @@ pipeline {
 
         stage("build image"){
             steps{
-                sh 'sudo docker build -t nodejs-app:latest .'
+                sh 'sudo docker build -t nodejs-app:latest2 .'
             }
         }
         stage('docker push') {
