@@ -20,7 +20,7 @@ const getIPAddress = () => {
 
 app.get('/', (req, res) => {
   const ipAddress = getIPAddress();
-  res.send(`Server: ${ipAddress}`);
+  res.send(`Server IP: ${ipAddress}`);
 });
 
 const server = app.listen(port, () => {
@@ -32,13 +32,13 @@ describe('Server', () => {
     server.close();
   });
 
-  it('should return IP address with "Сервер1:" prefix', (done) => {
+  it('should return IP address with "Server IP:" prefix', (done) => {
     request(app)
       .get('/')
       .expect(200)
       .end((err, res) => {
         if (err) return done(err);
-        assert.strictEqual(res.text.startsWith('Server:'), true);
+        assert.strictEqual(res.text.startsWith('Server IP:'), true);
         done();
       });
   });
