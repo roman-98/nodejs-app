@@ -24,7 +24,7 @@ pipeline {
 
         stage("build image"){
             steps{
-                sh 'sudo docker build -t nodejs-app:1.0 .'
+                sh 'sudo docker build -t nodejs-app:latest .'
             }
         }
         stage('Deploy Docker Image') {
