@@ -29,9 +29,9 @@ pipeline {
         }
         stage('docker push') {
             steps {
-                sh 'sudo docker login -u rstrypa -p ghjntrnjh'
-                sh 'sudo docker tag nodejs-app:latest rstrypa/nodejs-app:latest'
-                sh 'sudo docker push rstrypa/nodejs-app:latest'
+                sh 'sudo docker login -u romanstripa -p ghjntrnjh'
+                sh 'sudo docker tag nodejs-app:latest romanstripa/nodejs-app:latest'
+                sh 'sudo docker push romanstripa/nodejs-app:latest'
                 sh 'sudo docker logout'
             }
         }
