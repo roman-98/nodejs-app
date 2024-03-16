@@ -10,6 +10,8 @@ pipeline {
         stage("test"){
             steps{
                 sh 'sudo apt install -y npm'
+                sh 'npm install mocha --save-dev'
+                sh 'npm install supertest --save-dev'
                 sh 'npm test'
             }
         }
